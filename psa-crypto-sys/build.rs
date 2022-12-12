@@ -98,6 +98,8 @@ mod common {
             .blocklist_type("max_align_t")
             .generate_comments(false)
             .size_t_is_usize(true)
+            .use_core()
+            .ctypes_prefix("::core::ffi")
             .generate()
             .map_err(|_| {
                 Error::new(
