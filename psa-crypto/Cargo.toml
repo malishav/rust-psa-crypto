@@ -13,7 +13,7 @@ repository = "https://github.com/parallaxsecond/rust-psa-crypto"
 [dependencies]
 psa-crypto-sys = { path = "../psa-crypto-sys", version = "0.9.3", default-features = false }
 log = "0.4.11"
-serde = { version = "1.0.115", features = ["derive"] }
+serde = { version = "1.0.115", default-features = false, features = ["derive"] }
 zeroize = { version = "1.4.3", features = ["zeroize_derive"] }
 
 [dev-dependencies]
@@ -25,4 +25,4 @@ base64 = "0.12.3"
 default = ["operations", "no-std"]
 operations = ["psa-crypto-sys/operations", "interface"]
 interface = ["psa-crypto-sys/interface"]
-no-std = []
+no-std = ["psa-crypto-sys/no-std"]
