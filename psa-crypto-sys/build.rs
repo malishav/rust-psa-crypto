@@ -64,7 +64,7 @@ mod common {
             ));
         }
 
-        let mbedtls_mode = if cfg!(feature = "no-std") {
+        let mbedtls_mode = if cfg!(feature = "baremetal") {
             "crypto_baremetal"
         } else {
             "crypto"
@@ -196,7 +196,7 @@ mod operations {
             .define("ENABLE_PROGRAMS", "OFF")
             .define("ENABLE_TESTING", "OFF");
 
-        #[cfg(feature = "no-std")]
+        #[cfg(feature = "baremetal")]
         let mbed_build = mbed_build.define("CMAKE_TRY_COMPILE_TARGET_TYPE", "STATIC_LIBRARY");
 
         let mbed_build_path = mbed_build.build();
